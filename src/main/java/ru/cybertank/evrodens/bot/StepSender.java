@@ -6,6 +6,8 @@ import ru.cybertank.evrodens.domain.Cell;
 import ru.cybertank.evrodens.domain.CellStatus;
 import ru.cybertank.evrodens.domain.Field;
 
+import java.util.Arrays;
+
 import static java.util.Objects.nonNull;
 
 public class StepSender {
@@ -28,6 +30,7 @@ public class StepSender {
 
         Step resultStep = makeStep(enemyField);
 
+        System.out.println("Enemy field:" + Arrays.deepToString(enemyField.getField()));
         logger.info( String.format("EvRoDens make a step with coordinate : %1$s , %2$s", resultStep.getX(), resultStep.getY()));
 
         return resultStep;
@@ -72,7 +75,7 @@ public class StepSender {
 
         int x = woundedCell.getX();
         int y = woundedCell.getY();
-
+        logger.info("Finish him");
         if (isStepRight(x+1, y, enemyField)){
             return new Step(x + 1, y);
         } else if (isStepRight(x - 1, y, enemyField)){

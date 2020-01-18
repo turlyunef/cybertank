@@ -32,7 +32,7 @@ public class ResponseReceiver {
                 switch (response.getResponseMessage()) {
                     case REPEATED:
                     case MISSED:
-                        cellStatus = CellStatus.EMPTY;
+                        cellStatus = CellStatus.MISSED;
                         break;
                     case WOUNDED:
                         cellStatus = CellStatus.WOUNDED;
