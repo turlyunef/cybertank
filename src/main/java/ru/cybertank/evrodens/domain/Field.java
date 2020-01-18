@@ -1,11 +1,16 @@
 package ru.cybertank.evrodens.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.cybertank.evrodens.bot.TestBotImpl;
+
 import java.util.Arrays;
 
 public class Field {
 
     private final int fieldSize = 10;
     private Cell[][] field;
+    private final Logger logger = LoggerFactory.getLogger(TestBotImpl.class);
 
     public Field() {
         field = new Cell[fieldSize][fieldSize];
@@ -44,6 +49,7 @@ public class Field {
     }
 
     private void updateEmptyCells(Cell cell) {
+        logger.debug("Запуск проверки окружающих клеток после убийства");
         int rowIndex = cell.getY();
         int colIndex = cell.getX();
         for (int i = rowIndex - 1; i <= rowIndex + 1; i++) {
@@ -59,6 +65,7 @@ public class Field {
         Cell cell = getCellByCoordinate(i, j);
         if (cell.getStatus().equals(CellStatus.CLOSED)) {
             cell.setStatus(CellStatus.MISSED);
+            logger.debug("Ячейка с координатами [{}, {}] проверкой после убийства выставлена в MISSED", i, j);
         }
     }
 
