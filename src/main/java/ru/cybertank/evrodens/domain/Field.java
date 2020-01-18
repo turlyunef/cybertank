@@ -44,6 +44,9 @@ public class Field {
     public void changeCellStatus(Cell cell) {
         this.field[cell.getX()][cell.getY()].setStatus(cell.getStatus());
         if (cell.getStatus().equals(CellStatus.KILLED)) {
+            updateEmptyCells(this.findWounded());
+            this.findWounded().setStatus(CellStatus.KILLED);
+
             updateEmptyCells(cell);
         }
     }

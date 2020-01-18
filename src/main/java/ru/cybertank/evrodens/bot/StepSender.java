@@ -50,20 +50,28 @@ public class StepSender {
         int y = currentStep.getY();
 
         if (isStepRight(x, y, enemyField)){
-            currentStep = new Step(x + 1, y + 1);
+            if((x + 1 < enemyField.getFieldSize() && x + 1 >= 0) && (y + 1 < enemyField.getFieldSize() && y + 1 >= 0)){
+                currentStep = new Step(x + 1, y + 1);
+            }
+            else{
+                if(numberOfLine == 2){
+                    this.numberOfLine = 1;
+                    currentStep = new Step(relativeX + 2, relativeY);
+                } else {
+                    currentStep = new Step(relativeY, relativeX);
+                    this.numberOfLine = 2 ;
+                }
+            }
+
             return new Step(x, y);
-        } else if(!enemyField.getCellByCoordinate(x, y).getStatus().equals(CellStatus.CLOSED)){
+        }
+
+
+        if(!enemyField.getCellByCoordinate(x, y).getStatus().equals(CellStatus.CLOSED)){
             currentStep = new Step(x + 1, y + 1);
             return makeStep(enemyField);
         }
 
-        if(numberOfLine == 2){
-            numberOfLine = 1;
-            currentStep = new Step(relativeX + 2, relativeY);
-        } else {
-            currentStep = new Step(relativeY, relativeX);
-            numberOfLine++;
-        }
         return makeStep(enemyField);
     }
 
