@@ -1,7 +1,7 @@
-package com.sibedge.cybertank;
+package ru.cybertank.evrodens;
 
-import com.sibedge.cybertank.bot.Bot;
-import com.sibedge.cybertank.bot.Step;
+import ru.cybertank.evrodens.bot.Bot;
+import ru.cybertank.evrodens.bot.Step;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

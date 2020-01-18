@@ -1,9 +1,9 @@
-package com.sibedge.cybertank.client;
+package ru.cybertank.evrodens.client;
 
 import com.microsoft.signalr.HubConnection;
 import com.microsoft.signalr.HubConnectionBuilder;
-import com.sibedge.cybertank.bot.Bot;
-import com.sibedge.cybertank.bot.Step;
+import ru.cybertank.evrodens.bot.Bot;
+import ru.cybertank.evrodens.bot.Step;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

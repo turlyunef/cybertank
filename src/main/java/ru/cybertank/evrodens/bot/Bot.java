@@ -1,4 +1,4 @@
-package com.sibedge.cybertank.bot;
+package ru.cybertank.evrodens.bot;
 
 public interface Bot {
 

@@ -1,7 +1,7 @@
-package com.sibedge.cybertank;
+package ru.cybertank.evrodens;
 
-import com.sibedge.cybertank.client.Client;
-import com.sibedge.cybertank.client.PlayMode;
+import ru.cybertank.evrodens.client.Client;
+import ru.cybertank.evrodens.client.PlayMode;
 
 
 public class CyberTanksTestModeApp {

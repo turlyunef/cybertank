@@ -1,4 +1,4 @@
-package com.sibedge.cybertank.client;
+package ru.cybertank.evrodens.client;
 
 public enum PlayMode {
 
