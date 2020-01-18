@@ -77,7 +77,7 @@ public class StepSender {
         int x = woundedCell.getX();
         int y = woundedCell.getY();
         logger.info("Finish him");
-        if (isStepRight(x+1, y, enemyField)){
+        if (isStepRight(x + 1, y, enemyField)){
             return new Step(x + 1, y);
         } else if (isStepRight(x - 1, y, enemyField)){
             return new Step(x - 1, y);
