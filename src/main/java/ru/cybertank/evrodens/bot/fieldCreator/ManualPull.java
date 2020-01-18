@@ -67,8 +67,8 @@ public class ManualPull implements FieldCreator {
     public String createField() {
         final Random random = new Random();
         random.setSeed(System.nanoTime());
-        int choice = random.nextInt(4);
-        logger.debug("Выбрано поле из ручного пула под номером {}", choice);
-        return pull.get(choice);
+//        int choice = random.nextInt(4);
+//        logger.debug("Выбрано поле из ручного пула под номером {}", choice);
+        return pull.get(0);
     }
 }

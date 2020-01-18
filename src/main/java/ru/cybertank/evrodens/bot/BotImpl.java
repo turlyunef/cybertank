@@ -40,7 +40,23 @@ public class BotImpl implements Bot {
 
     @Override
     public Step sendStep() {
-        return this.stepSender.sendStep(this.enemyField);
+        printField(enemyField);
+        Step step = this.stepSender.sendStep(this.enemyField);
+        logger.warn("SHOOT: x = {} y =  {}", step.getY(), step.getX());
+        return step;
+    }
+
+    private void printField(Field enemyField) {
+        System.out.println();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print(enemyField.getCellByCoordinate(i, j).getStatus() + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println();
+
     }
 
     @Override
