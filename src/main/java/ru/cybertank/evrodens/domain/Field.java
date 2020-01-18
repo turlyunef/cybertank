@@ -15,4 +15,8 @@ public class Field {
         this.field = field;
     }
 
+    public Cell findWounded(){
+
+    }
+
 }
