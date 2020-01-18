@@ -1,5 +1,6 @@
 package ru.cybertank.evrodens.bot;
 
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.cybertank.evrodens.bot.fieldCreator.FieldCreator;
@@ -35,7 +36,8 @@ public class BotImpl implements Bot {
 
     @Override
     public String sendArrangement() {
-        return fieldCreator.createField();
+        Gson gson = new Gson();
+        return gson.toJson(fieldCreator.createField());
     }
 
     @Override
