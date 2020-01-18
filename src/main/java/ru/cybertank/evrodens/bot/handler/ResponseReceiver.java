@@ -4,7 +4,7 @@ package ru.cybertank.evrodens.bot.handler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.cybertank.evrodens.TestBot;
+import ru.cybertank.evrodens.bot.TestBotImpl;
 import ru.cybertank.evrodens.domain.Cell;
 import ru.cybertank.evrodens.domain.CellStatus;
 import ru.cybertank.evrodens.domain.Field;
@@ -15,7 +15,7 @@ import static java.util.Objects.nonNull;
 
 public class ResponseReceiver {
     Field enemyField;
-    private final Logger logger = LoggerFactory.getLogger(TestBot.class);
+    private final Logger logger = LoggerFactory.getLogger(TestBotImpl.class);
 
     public ResponseReceiver(Field enemyField) {
         this.enemyField = enemyField;

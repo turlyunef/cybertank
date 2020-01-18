@@ -1,7 +1,5 @@
-package ru.cybertank.evrodens;
+package ru.cybertank.evrodens.bot;
 
-import ru.cybertank.evrodens.bot.Bot;
-import ru.cybertank.evrodens.bot.Step;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,15 +8,15 @@ import java.util.Random;
 /**
  * Эталонная реализация бота
  */
-public class TestBot implements Bot {
+public class TestBotImpl implements Bot {
 
-    private final Logger logger = LoggerFactory.getLogger(TestBot.class);
+    private final Logger logger = LoggerFactory.getLogger(TestBotImpl.class);
 
 
     private final String name;
 
 
-    TestBot(final String name) {
+    TestBotImpl(final String name) {
         this.name = name;
     }
 

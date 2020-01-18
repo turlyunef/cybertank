@@ -2,7 +2,6 @@ package ru.cybertank.evrodens.bot;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.cybertank.evrodens.TestBot;
 import ru.cybertank.evrodens.bot.handler.ResponseReceiver;
 import ru.cybertank.evrodens.domain.Field;
 
@@ -14,7 +13,7 @@ public class BotImpl implements Bot {
     private StepSender stepSender;
     private ResponseReceiver responseReceiver;
 
-    private final Logger logger = LoggerFactory.getLogger(TestBot.class);
+    private final Logger logger = LoggerFactory.getLogger(TestBotImpl.class);
     private String name;
 
     public BotImpl(String name) {
