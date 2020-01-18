@@ -2,6 +2,8 @@ package ru.cybertank.evrodens.bot;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.cybertank.evrodens.bot.fieldCreator.FieldCreator;
+import ru.cybertank.evrodens.bot.fieldCreator.ManualPull;
 import ru.cybertank.evrodens.bot.handler.ResponseReceiver;
 import ru.cybertank.evrodens.domain.Field;
 
@@ -12,6 +14,7 @@ public class BotImpl implements Bot {
     private Field enemyField;
     private StepSender stepSender;
     private ResponseReceiver responseReceiver;
+    private FieldCreator fieldCreator = new ManualPull();
 
     private final Logger logger = LoggerFactory.getLogger(TestBotImpl.class);
     private String name;
@@ -32,7 +35,7 @@ public class BotImpl implements Bot {
 
     @Override
     public String sendArrangement() {
-        return null;
+        return fieldCreator.createField();
     }
 
     @Override
