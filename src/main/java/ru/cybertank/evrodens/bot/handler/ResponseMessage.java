@@ -1,6 +1,6 @@
 package ru.cybertank.evrodens.bot.handler;
 
-public enum Message {
+public enum ResponseMessage {
     MISSED("Промах. Ход переходит противнику"),
     REPEATED("Выстрел произведен по ранее обстрелянной клетке, ход переходит противнику"),
     WOUNDED("Ранил, ход продолжается"),
@@ -9,7 +9,7 @@ public enum Message {
     TIMEOUT("Таймаут. Техническое поражение");
     private String descriptions;
 
-    Message(String descriptions) {
+    ResponseMessage(String descriptions) {
         this.descriptions = descriptions;
     }
 }
