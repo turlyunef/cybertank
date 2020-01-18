@@ -31,6 +31,7 @@ public class StepSender {
         Step resultStep = makeStep(enemyField);
 
         System.out.println("Enemy field:" + Arrays.deepToString(enemyField.getField()));
+        System.out.println(String.format("EvRoDens make a step with coordinate : %1$s , %2$s", resultStep.getX(), resultStep.getY()));
         logger.info( String.format("EvRoDens make a step with coordinate : %1$s , %2$s", resultStep.getX(), resultStep.getY()));
 
         return resultStep;
