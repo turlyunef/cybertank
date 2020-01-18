@@ -46,8 +46,8 @@ public class ResponseReceiver {
                 int x = cell.getX();
                 int y = cell.getY();
                 enemyField.changeCellStatus(new Cell(x, y, cellStatus));
-                logger.debug("Изменено состояние вражеского поля с координатами x = {}, y = {}. " +
-                                "Выставлен статус {}", x, y, cellStatus);
+                logger.debug("Enemy field with coordinates x = {}, y = {} changed. " +
+                                "Status is {}", x, y, cellStatus);
             }
         }
     }

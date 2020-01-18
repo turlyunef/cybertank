@@ -16,7 +16,7 @@ public class ServerResponseDto {
     @JsonProperty("Steps")
     private int steps;
 
-    //Инициализация вражеского поля
+    //Initialization of the enemy field
     @JsonProperty("Field")
     private int[][] field;
 

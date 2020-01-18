@@ -16,7 +16,7 @@ public class TestBotImpl implements Bot {
     private final String name;
 
 
-    TestBotImpl(final String name) {
+    public TestBotImpl(final String name) {
         this.name = name;
     }
 
