@@ -2,6 +2,8 @@ package ru.cybertank.evrodens.bot.handler;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ru.cybertank.evrodens.domain.Cell;
+import ru.cybertank.evrodens.domain.CellStatus;
 import ru.cybertank.evrodens.domain.Field;
 
 import java.io.IOException;
@@ -22,7 +24,22 @@ public class ResponseReceiver {
                 (nonNull(response.getStep()))) {
             CellDto cell = mapper.readValue(response.getStep(), CellDto.class);
             if (nonNull(cell.getX()) && (nonNull(cell.getY())) ) {
-                enemyField.
+                CellStatus cellStatus;
+                switch (response.getResponseMessage()) {
+                    case REPEATED:
+                    case MISSED:
+                        cellStatus = CellStatus.EMPTY;
+                        break;
+                    case WOUNDED:
+                        cellStatus = CellStatus.WOUNDED;
+                        break;
+                    case KILLED:
+                        cellStatus = CellStatus.KILLED;
+                        break;
+                    default:
+                        return;
+                }
+                enemyField.changeCellStatus(new Cell(cell.getX(), cell.getY(), cellStatus));
             }
         }
     }

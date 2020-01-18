@@ -9,6 +9,12 @@ public class Cell {
     public Cell() {
     }
 
+    public Cell(int x, int y, CellStatus status) {
+        this.x = x;
+        this.y = y;
+        this.status = status;
+    }
+
     public int getY() {
         return y;
     }
