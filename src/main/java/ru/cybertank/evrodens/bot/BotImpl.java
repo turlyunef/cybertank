@@ -1,6 +1,17 @@
 package ru.cybertank.evrodens.bot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.cybertank.evrodens.TestBot;
+
 public class BotImpl implements Bot {
+
+    private final Logger logger = LoggerFactory.getLogger(TestBot.class);
+    private static final String name = "EvRoDens";
+
+    public BotImpl() {
+    }
+
     @Override
     public String sendArrangement() {
         return null;
@@ -18,6 +29,6 @@ public class BotImpl implements Bot {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 }
