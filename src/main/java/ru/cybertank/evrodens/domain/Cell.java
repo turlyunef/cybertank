@@ -12,6 +12,11 @@ public class Cell {
         this.y = y;
     }
 
+    @Override
+    public String toString() {
+        return status.name();
+    }
+
     public int getY() {
         return y;
     }
