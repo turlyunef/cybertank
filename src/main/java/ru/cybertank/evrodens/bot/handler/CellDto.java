@@ -10,9 +10,7 @@ public class CellDto {
     @JsonProperty("Y")
     private int y;
 
-    public CellDto(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public CellDto() {
     }
 
     public int getX() {
@@ -21,5 +19,13 @@ public class CellDto {
 
     public int getY() {
         return y;
+    }
+
+    public void setX(Integer x) {
+        this.x = x;
+    }
+
+    public void setY(Integer y) {
+        this.y = y;
     }
 }

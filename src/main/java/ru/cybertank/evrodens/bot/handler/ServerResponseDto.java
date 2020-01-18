@@ -8,7 +8,7 @@ public class ServerResponseDto {
     @JsonProperty("Step")
     private CellDto step;
     @JsonProperty("Hp")
-    private int hp;
+    private Integer hp;
     @JsonProperty("Message")
     private ResponseMessage responseMessage;
     @JsonProperty("Status")

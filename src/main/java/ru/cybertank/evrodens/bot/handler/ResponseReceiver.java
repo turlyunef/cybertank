@@ -26,7 +26,9 @@ public class ResponseReceiver {
         ServerResponseDto response = mapper.readValue(message, ServerResponseDto.class);
         if (nonNull(response.getResponseMessage()) &&
                 (nonNull(response.getStep()))) {
-            CellDto cell = new CellDto(response.getStep().getX(), response.getStep().getY());
+            CellDto cell = new CellDto();
+            cell.setX(response.getStep().getX());
+            cell.setY(response.getStep().getY());
             if (nonNull(cell.getX()) && (nonNull(cell.getY())) ) {
                 CellStatus cellStatus;
                 switch (response.getResponseMessage()) {
