@@ -14,4 +14,8 @@ repositories {
 dependencies {
     compile group: 'com.microsoft.signalr', name: 'signalr', version: '1.0.0'
     compile 'org.slf4j:slf4j-jdk14:1.7.25'
+    compile (
+            [group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-base', version: '2.4.1'],
+            [group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.4.1'],
+            [group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version: '2.4.1'])
 }
