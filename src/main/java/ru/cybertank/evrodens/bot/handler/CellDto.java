@@ -9,4 +9,12 @@ public class CellDto {
     private int x;
     @JsonProperty("Y")
     private int y;
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }

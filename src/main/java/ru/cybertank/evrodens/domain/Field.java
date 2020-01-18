@@ -16,7 +16,10 @@ public class Field {
     }
 
     public Cell findWounded(){
+    }
 
+    public void changeCellStatus(Cell cell) {
+        this.field[cell.getX()][cell.getY()].setStatus(cell.getStatus());
     }
 
 }
