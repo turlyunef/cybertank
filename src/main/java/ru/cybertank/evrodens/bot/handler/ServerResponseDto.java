@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ServerResponseDto {
     @JsonProperty("Step")
-    private String step;
+    private CellDto step;
     @JsonProperty("Hp")
     private int hp;
     @JsonProperty("Message")
@@ -20,11 +20,11 @@ public class ServerResponseDto {
     @JsonProperty("Field")
     private int[][] field;
 
-    public String getStep() {
+    public CellDto getStep() {
         return step;
     }
 
-    public void setStep(String step) {
+    public void setStep(CellDto step) {
         this.step = step;
     }
 
