@@ -64,7 +64,7 @@ public class StepSender {
     }
 
     private boolean isStepRight(int x, int y, Field enemyField){
-       return (x <= 9 && x >= 0) && (y <= 9 && y >= 0)
+       return (x <= enemyField.getFieldSize() && x >= 0) && (y <= enemyField.getFieldSize() && y >= 0)
                && (enemyField.getCellByCoordinate(x, y).getStatus().equals(CellStatus.CLOSED));
     }
 

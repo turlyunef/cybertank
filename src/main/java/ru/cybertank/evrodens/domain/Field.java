@@ -14,8 +14,8 @@ public class Field {
 
     public Field() {
         field = new Cell[fieldSize][fieldSize];
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < fieldSize; i++) {
+            for (int j = 0; j < fieldSize; j++) {
                 field[i][j] = new Cell(i, j, CellStatus.CLOSED);
             }
         }
@@ -75,4 +75,7 @@ public class Field {
                 (colIndex > fieldSize));
     }
 
+    public int getFieldSize() {
+        return fieldSize;
+    }
 }
