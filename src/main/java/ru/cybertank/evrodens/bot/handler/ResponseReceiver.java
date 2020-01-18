@@ -47,7 +47,7 @@ public class ResponseReceiver {
                 }
                 int x = cell.getX();
                 int y = cell.getY();
-                enemyField.changeCellStatus(new Cell(x, y, cellStatus));
+                enemyField.changeCellStatus(new Cell(y, x, cellStatus));
                 logger.debug("Enemy field with coordinates x = {}, y = {} changed. " +
                                 "Status is {}", x, y, cellStatus);
             }

@@ -79,9 +79,11 @@ public class StepSender {
         logger.info("Finish him");
         if (isStepRight(x + 1, y, enemyField)){
             return new Step(x + 1, y);
-        } else if (isStepRight(x - 1, y, enemyField)){
+        }
+        if (isStepRight(x - 1, y, enemyField)){
             return new Step(x - 1, y);
-        } else if (isStepRight(x, y + 1, enemyField)){
+        }
+        if (isStepRight(x, y + 1, enemyField)){
             return new Step(x, y + 1);
         }
             return new Step(x, y - 1);
