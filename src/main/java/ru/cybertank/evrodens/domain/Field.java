@@ -7,6 +7,12 @@ public class Field {
     private Cell[][] field;
 
     public Field() {
+        field = new Cell[10][10];
+        for(int i = 0; i < 10; i++ ){
+            for(int j = 0; j < 10; j++){
+                field[i][j] = new Cell(i, j, CellStatus.CLOSED);
+            }
+        }
     }
 
     public Cell[][] getField() {

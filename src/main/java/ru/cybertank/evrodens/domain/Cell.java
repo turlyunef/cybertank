@@ -6,13 +6,10 @@ public class Cell {
     private int y;
     private CellStatus status;
 
-    public Cell() {
-    }
-
-    public Cell(int x, int y, CellStatus status) {
+    public Cell(int x, int y, CellStatus cellStatus) {
+        status = cellStatus;
         this.x = x;
         this.y = y;
-        this.status = status;
     }
 
     public int getY() {

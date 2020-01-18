@@ -40,7 +40,7 @@ public class BotImpl implements Bot {
 
     @Override
     public Step sendStep() {
-        return stepSender.sendStep(this.enemyField);
+        return this.stepSender.sendStep(this.enemyField);
     }
 
     @Override

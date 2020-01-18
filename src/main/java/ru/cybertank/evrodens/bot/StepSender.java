@@ -1,5 +1,7 @@
 package ru.cybertank.evrodens.bot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.cybertank.evrodens.domain.Cell;
 import ru.cybertank.evrodens.domain.CellStatus;
 import ru.cybertank.evrodens.domain.Field;
@@ -8,7 +10,14 @@ import static java.util.Objects.nonNull;
 
 public class StepSender {
 
-    private Step previousStep;
+    private Step currentStep;
+
+    private int numberOfLine;
+
+    private int relativeX;
+    private int relativeY;
+
+    private final Logger logger = LoggerFactory.getLogger(StepSender.class);
 
     public Step sendStep(Field enemyField){
         Cell woundedCell = enemyField.findWounded();
@@ -17,22 +26,46 @@ public class StepSender {
             return finish(enemyField, woundedCell);
         }
 
-        return new Step(1, 2);
+        Step resultStep = makeStep(enemyField);
+
+        logger.info( String.format("EvRoDens make a step with coordinate : %1$s , %2$s", resultStep.getX(), resultStep.getY()));
+
+        return resultStep;
     }
 
     public StepSender() {
-        previousStep = new Step(0, 0);
+        numberOfLine = 1;
+        relativeX = 1;
+        relativeY = 0;
+        currentStep = new Step(relativeX, relativeY);
     }
 
-    private Step makeStep(){
-        Step step = new Step(1, 2);
+    private Step makeStep(Field enemyField){
 
-        return null;
+        int x = currentStep.getX();
+        int y = currentStep.getY();
+
+        if (isStepRight(x, y, enemyField)){
+            currentStep = new Step(x + 1, y + 1);
+            return new Step(x, y);
+        } else if(!enemyField.getCellByCoordinate(x, y).getStatus().equals(CellStatus.CLOSED)){
+            currentStep = new Step(x + 1, y + 1);
+            return makeStep(enemyField);
+        }
+
+        if(numberOfLine == 2){
+            numberOfLine = 1;
+            currentStep = new Step(relativeX + 2, relativeY);
+        } else {
+            currentStep = new Step(relativeY, relativeX);
+            numberOfLine++;
+        }
+        return makeStep(enemyField);
     }
 
     private boolean isStepRight(int x, int y, Field enemyField){
-       return (x < 9 && x > 0) && (y < 9 && y > 0)
-               && (enemyField.getCellByCoordinate(x, y).getStatus().equals(CellStatus.MISSED));
+       return (x <= 9 && x >= 0) && (y <= 9 && y >= 0)
+               && (enemyField.getCellByCoordinate(x, y).getStatus().equals(CellStatus.CLOSED));
     }
 
     private Step finish(Field enemyField, Cell woundedCell){
