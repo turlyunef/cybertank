@@ -15,12 +15,20 @@ public class BotImpl implements Bot {
     private ResponseReceiver responseReceiver;
 
     private final Logger logger = LoggerFactory.getLogger(TestBot.class);
-    private static final String NAME = "EvRoDens";
+    private String name;
 
-    public BotImpl() {
+    public BotImpl(String name) {
+        this.name = name;
         this.enemyField = new Field();
         this.stepSender = new StepSender();
         this.responseReceiver = new ResponseReceiver(enemyField);
+    }
+
+    public BotImpl(Field enemyField, StepSender stepSender, ResponseReceiver responseReceiver) {
+        this.name = "EvRoDens";
+        this.enemyField = enemyField;
+        this.stepSender = stepSender;
+        this.responseReceiver = responseReceiver;
     }
 
     @Override
@@ -36,6 +44,7 @@ public class BotImpl implements Bot {
     @Override
     public void handleMessage(String message) {
         try {
+            logger.debug("Получено сообщение от сервера: " + message);
             this.responseReceiver.handleMessage(message);
         } catch (IOException e) {
             logger.error("Ошибка маппинга json, полученного от сервера");
@@ -44,6 +53,6 @@ public class BotImpl implements Bot {
 
     @Override
     public String getName() {
-        return NAME;
+        return this.name;
     }
 }

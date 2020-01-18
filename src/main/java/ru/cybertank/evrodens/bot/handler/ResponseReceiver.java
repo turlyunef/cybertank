@@ -2,6 +2,9 @@ package ru.cybertank.evrodens.bot.handler;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.cybertank.evrodens.TestBot;
 import ru.cybertank.evrodens.domain.Cell;
 import ru.cybertank.evrodens.domain.CellStatus;
 import ru.cybertank.evrodens.domain.Field;
@@ -12,6 +15,7 @@ import static java.util.Objects.nonNull;
 
 public class ResponseReceiver {
     Field enemyField;
+    private final Logger logger = LoggerFactory.getLogger(TestBot.class);
 
     public ResponseReceiver(Field enemyField) {
         this.enemyField = enemyField;
@@ -39,7 +43,11 @@ public class ResponseReceiver {
                     default:
                         return;
                 }
-                enemyField.changeCellStatus(new Cell(cell.getX(), cell.getY(), cellStatus));
+                int x = cell.getX();
+                int y = cell.getY();
+                enemyField.changeCellStatus(new Cell(x, y, cellStatus));
+                logger.debug("Изменено состояние вражеского поля с координатами x = {}, y = {}. " +
+                                "Выставлен статус {}", x, y, cellStatus);
             }
         }
     }
